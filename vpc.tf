@@ -174,6 +174,6 @@ resource "aws_network_acl_association" "lms-api-nacl-association" {
 # lms database nacl association
 resource "aws_network_acl_association" "lms-database-nacl-association" {
   network_acl_id = aws_network_acl.batabase-nacl.id
-  subnet_id      = aws_subnet.batabase-nacl.id
+  subnet_id      = aws_subnet.lms-database-subnet.id
 
 }
