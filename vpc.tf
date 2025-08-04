@@ -81,3 +81,81 @@ resource "aws_route_table_association" "lms-batabase-asc" {
   subnet_id      = aws_subnet.lms-batabase-subnet.id
   route_table_id = aws_route_table.lms-pub-rt.id
 }
+#lms web nacl
+resource "aws_network_acl" "web-nacl" {
+  vpc_id = aws_vpc.lms-vpc.id
+
+  egress {
+    protocol   = "tcp"
+    rule_no    = 100
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 0
+    to_port    = 65535
+  }
+
+  ingress {
+    protocol   = "tcp"
+    rule_no    = 100
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 0
+    to_port    = 65535
+  }
+
+  tags = {
+    Name = "lms-web-nacl"
+  }
+}
+#lms api nacl
+resource "aws_network_acl" "api-nacl" {
+  vpc_id = aws_vpc.lms-vpc.id
+
+  egress {
+    protocol   = "tcp"
+    rule_no    = 100
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 0
+    to_port    = 65535
+  }
+
+  ingress {
+    protocol   = "tcp"
+    rule_no    = 100
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 0
+    to_port    = 65535
+  }
+
+  tags = {
+    Name = "lms-api-nacl"
+  }
+}
+#lms batabase nacl
+resource "aws_network_acl" "batabase-nacl" {
+  vpc_id = aws_vpc.lms-vpc.id
+
+  egress {
+    protocol   = "tcp"
+    rule_no    = 100
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 0
+    to_port    = 65535
+  }
+
+  ingress {
+    protocol   = "tcp"
+    rule_no    = 100
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 0
+    to_port    = 65535
+  }
+
+  tags = {
+    Name = "lms-batabase-nacl"
+  }
+}
