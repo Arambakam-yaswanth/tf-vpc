@@ -14,7 +14,7 @@ resource "aws_subnet" "lms-web-subnet" {
   map_public_ip_on_launch ="true"
 
   tags = {
-    Name = "Main"
+    Name = "lms-web-subnet"
   }
 }
 # api subnet
@@ -24,7 +24,7 @@ resource "aws_subnet" "lms-api-subnet" {
   map_public_ip_on_launch ="true"
 
   tags = {
-    Name = "Main"
+    Name = "lms-api-subnet"
   }
 }
 # database subnet
@@ -33,7 +33,7 @@ resource "aws_subnet" "lms-batabase-subnet" {
   cidr_block = "10.0.3.0/24"
 
   tags = {
-    Name = "Main"
+    Name = "lms-batabase-subnet"
   }
 }
 
