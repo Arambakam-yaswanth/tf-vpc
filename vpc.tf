@@ -159,3 +159,21 @@ resource "aws_network_acl" "batabase-nacl" {
     Name = "lms-batabase-nacl"
   }
 }
+# lms web nacl association
+resource "aws_network_acl_association" "lms-web-nacl-association" {
+  network_acl_id = aws_network_acl.web-nacl.id
+  subnet_id      = aws_subnet.lms-web-subnet.id
+
+}
+# lms api nacl association
+resource "aws_network_acl_association" "lms-api-nacl-association" {
+  network_acl_id = aws_network_acl.api-nacl.id
+  subnet_id      = aws_subnet.lms-api-subnet.id
+
+}
+# lms database nacl association
+resource "aws_network_acl_association" "lms-database-nacl-association" {
+  network_acl_id = aws_network_acl.batabase-nacl.id
+  subnet_id      = aws_subnet.batabase-nacl.id
+
+}
