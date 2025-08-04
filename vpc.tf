@@ -36,4 +36,11 @@ resource "aws_subnet" "lms-batabase-subnet" {
     Name = "lms-batabase-subnet"
   }
 }
+# internet gateway
+resource "aws_internet_gateway" "lms-igw" {
+  vpc_id = aws_vpc.lms-vpc.id
 
+  tags = {
+    Name = "lms-internet-gateway"
+  }
+}
